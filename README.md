@@ -13,3 +13,9 @@ Performed a statistical chi-square test to check the independence of features an
 ## Collaboration:
 
 This project was under the Star DBT program of the Government, I had the opportunity to learn PowerBI and RStudio from Industry professionals directly, different teams of students were assigned different types of projects and I had the opportunity to lead 4 other student interns.
+
+# To run the Dashboard in real-time:
+
+1. Download PowerBI Desktop
+2. Download the PBIX File from the repository
+3. Open the file using PowerBI Desktop
