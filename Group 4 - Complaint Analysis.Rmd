@@ -1,0 +1,123 @@
+# Complaint Analysis
+
+### by Group 4
+
+## Chi-Square Test
+
+Ho = There is no relationship between the categorical variables i.e. they are independent.
+
+H1 = There is relationship between the categorical variables i.e. they are dependent.
+
+Inference: If p-value \< alpha, then Reject Ho; If p-value \> alpha, then Do not reject Ho
+
+```{r,warning=FALSE}
+library(readxl)
+insurance_complaints <- read_excel("C:/Users/Tanmay/Downloads/insurance complaints.xlsx")
+View(insurance_complaints)
+data = insurance_complaints
+```
+
+### **STATUS vs STATUS**
+
+```{r,warning=FALSE}
+status_status = table(data$Status,data$Status)
+status_status
+chisq.test(status_status)
+```
+
+Since the p-value \< alpha , we reject Ho and conclude that they are dependent on each other
+
+### **STATUS vs CONCLUSION**
+
+```{r,warning=FALSE}
+status_conclusion = table(data$Conclusion,data$Status)
+status_conclusion
+chisq.test(status_conclusion)
+```
+
+Since the p-value \> alpha , we Do not reject Ho and conclude that they are independent on each other
+
+### **REASON vs REASON**
+
+```{r,warning=FALSE}
+reason_reason = table(data$Reason,data$Reason)
+reason_reason
+chisq.test(reason_reason)
+```
+
+Since the p-value \< alpha , we reject Ho and conclude that they are dependent on each other
+
+### **REASON vs COVERAGE**
+
+```{r,warning=FALSE}
+reason_coverage = table(data$Reason,data$Coverage)
+reason_coverage
+chisq.test(reason_coverage)
+```
+
+Since the p-value \< alpha , we reject Ho and conclude that they are dependent on each other
+
+### **REASON vs CONCLUSION**
+
+```{r,warning=FALSE}
+reason_conclusion = table(data$Reason,data$Conclusion)
+reason_conclusion
+chisq.test(reason_conclusion)
+```
+
+Since the p-value \< alpha , we reject Ho and conclude that they are dependent on each other
+
+### **REASON vs STATUS**
+
+```{r,warning=FALSE}
+reason_status = table(data$Reason,data$Status)
+reason_status
+chisq.test(reason_status)
+```
+
+Since the p-value \< alpha , we reject Ho and conclude that they are dependent on each other
+
+### **CONCLUSION vs CONCLUSION**
+
+```{r,warning=FALSE}
+concl_concl = table(data$Conclusion,data$Conclusion)
+concl_concl
+chisq.test(concl_concl)
+```
+
+Since the p-value \< alpha , we reject Ho and conclude that they are dependent on each other
+
+### **COVERAGE vs COVERAGE**
+
+```{r,warning=FALSE}
+coverage_coverage = table(data$Coverage,data$Coverage)
+coverage_coverage
+chisq.test(coverage_coverage)
+```
+
+Since the p-value \< alpha , we reject Ho and conclude that they are dependent on each other
+
+### **COVERAGE vs CONCLUSION**
+
+```{r,warning=FALSE}
+coverage_concl = table(data$Coverage,data$Conclusion)
+coverage_concl
+chisq.test(coverage_concl)
+```
+
+The problem is that you can't have expected frequencies to be zero, because that would throw off the calculation of the chi-squared statistic (we might have zeros in the denominator).
+
+No result
+
+### **COVERAGE vs STATUS**
+
+```{r,warning=FALSE}
+coverage_status = table(data$Coverage,data$Status)
+coverage_status
+chisq.test(coverage_status)
+```
+
+Since the p-value \< alpha , we reject Ho and conclude that they are dependent on each other
+
+## **Conclusion**
+**The variables 'Status' and 'Conclusion' are independent of each other rest all the variables that we compared are dependent on each other.**
